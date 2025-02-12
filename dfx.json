@@ -1,0 +1,26 @@
+{
+  "canisters": {
+    "task-timer-backend": {
+      "main": "src/task-timer-backend/main.mo",
+      "type": "motoko"
+    },
+    "task-timer-frontend": {
+      "dependencies": [
+        "task-timer-backend"
+      ],
+      "source": [
+        "src/task-timer-frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "task-timer-frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
