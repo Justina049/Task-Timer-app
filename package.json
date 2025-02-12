@@ -5,6 +5,7 @@
   },
   "name": "task-timer",
   "scripts": {
+    "build-all": "tsc && vite build",
     "build": "npm run build --workspaces --if-present",
     "prebuild": "npm run prebuild --workspaces --if-present",
     "pretest": "npm run prebuild --workspaces --if-present",
@@ -14,5 +15,9 @@
   "type": "module",
   "workspaces": [
     "src/task-timer-frontend"
-  ]
+  ],
+  "devDependencies": {
+    "typescript": "^5.7.3",
+    "vite": "^6.1.0"
+  }
 }
