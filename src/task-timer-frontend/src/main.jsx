@@ -1,19 +1,3 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom/client';
-// import App from './App';
-// import './index.scss';
-// import { HttpAgent } from "@dfinity/agent";
-
-
-
-
-// ReactDOM.createRoot(document.getElementById('root')).render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-// );
-
-
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
@@ -28,7 +12,6 @@ async function init() {
       console.log("✅ Root key fetched successfully!");
     } catch (err) {
       console.error("❌ Error fetching root key:", err);
-      // You might want to render an error message instead of the app here
       return;
     }
   }

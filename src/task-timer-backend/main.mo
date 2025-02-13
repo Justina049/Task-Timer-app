@@ -28,7 +28,7 @@ public query func getTasks() : async [(Nat, Text, Int)] {
 };
 
 
-  // Delete Task: Removes a task by ID
+  // Delete Task: Removes a task 
   public func deleteTask(taskId: Nat) {
   tasks := Array.filter<(Nat, Text, Int)>(tasks, func (task : (Nat, Text, Int)) { task.0 != taskId });
 };

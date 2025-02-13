@@ -30,7 +30,6 @@ const App = ({ agent }) => {
       setTasks(fetchedTasks);
     } catch (error) {
       console.error("Error fetching tasks:", error);
-      // Consider adding user-friendly error handling here
     }
   };
 
@@ -42,7 +41,6 @@ const App = ({ agent }) => {
         setNewTask("");
       } catch (error) {
         console.error("Error adding task:", error);
-        // Consider adding user-friendly error handling here
       }
     }
   };
@@ -75,7 +73,6 @@ const App = ({ agent }) => {
       );
     } catch (error) {
       console.error("Error updating task time:", error);
-      // Consider adding user-friendly error handling here
     }
 
     setTimers((prev) => {
@@ -91,7 +88,6 @@ const App = ({ agent }) => {
       setTasks(tasks.filter((task) => task[0] !== taskId));
     } catch (error) {
       console.error("Error deleting task:", error);
-      // Consider adding user-friendly error handling here
     }
   };
 
