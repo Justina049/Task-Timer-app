@@ -113,7 +113,7 @@ const App = ({ agent }) => {
 
         return (
           <li key={taskId}>
-            {task[1]} - <b>{elapsedTime} sec</b>
+            {task[1]} - <span className="green-timer">{elapsedTime} sec</span>
             {isRunning ? (
               <button onClick={() => stopTimer(taskId)}>Stop</button>
             ) : (
