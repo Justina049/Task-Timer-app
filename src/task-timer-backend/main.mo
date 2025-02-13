@@ -25,5 +25,18 @@ actor TaskTimer {
 // Get Tasks: Retrives all tasks
 public query func getTasks() : async [(Nat, Text, Int)] {
   return tasks;
-}
+};
+
+
+  // Delete Task: Removes a task by ID
+  public func deleteTask(taskId: Nat) {
+  tasks := Array.filter<(Nat, Text, Int)>(tasks, func (task : (Nat, Text, Int)) { task.0 != taskId });
+};
+
+
+//   public func deleteTask(taskId: Nat) : Bool {
+//   let oldSize = tasks.size();
+//   tasks := Array.filter(tasks, func (task) { task.0 != taskId });
+//   return tasks.size() < oldSize;
+// };
 }
