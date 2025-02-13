@@ -22,7 +22,8 @@ actor TaskTimer {
 };
 
 
-
-
-
+// Get Tasks: Retrives all tasks
+public query func getTasks() : async [(Nat, Text, Int)] {
+  return tasks;
+}
 }
