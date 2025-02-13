@@ -8,6 +8,7 @@ const App = ({ agent }) => {
   const [newTask, setNewTask] = useState("");
   const [timers, setTimers] = useState({});
   const [taskActor, setTaskActor] = useState(null);
+  const [currentTime, setCurrentTime] = useState(Date.now());
 
   useEffect(() => {
     const initActor = async () => {
@@ -45,6 +46,14 @@ const App = ({ agent }) => {
       }
     }
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTime(Date.now());
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
 
   const startTimer = (taskId) => {
     setTimers((prev) => ({
@@ -99,14 +108,25 @@ const App = ({ agent }) => {
         <button onClick={addTask}>Add Task</button>
       </div>
       <ul>
-        {tasks.map((task) => (
-          <li key={task[0]}>
-            {task[1]} - <b>{task[2]} sec</b>
-            <button onClick={() => startTimer(task[0])}>Start</button>
-            <button onClick={() => stopTimer(task[0])}>Stop</button>
-            <button className="delete" onClick={() => deleteTask(task[0])}>Delete</button>
+        {tasks.map((task) => {
+          const taskId = task[0];
+          const isRunning = timers[taskId] !==undefined;
+          const elapsedTime = isRunning
+            ? Math.floor((Date.now() - timers[taskId]) / 1000)
+            : Number(task[2]);
+
+        return (
+          <li key={taskId}>
+            {task[1]} - <b>{elapsedTime} sec</b>
+            {isRunning ? (
+              <button onClick={() => stopTimer(taskId)}>Stop</button>
+            ) : (
+              <button onClick={() => startTimer(taskId)}>Start</button>
+            )}
+            <button className="delete" onClick={() => deleteTask(taskId)}>Delete</button>
           </li>
-        ))}
+        );
+      })}  
       </ul>
     </div>
   );
